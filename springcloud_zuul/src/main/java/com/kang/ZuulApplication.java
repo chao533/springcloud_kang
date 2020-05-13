@@ -1,4 +1,4 @@
-package com.kang.cloud.zuul;
+package com.kang;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
