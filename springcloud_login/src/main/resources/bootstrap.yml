@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: springcloud-login-kang
+  cloud:
+    config:
+      uri: http://localhost:8771
+      fail-fast: true
+  profiles:
+    active: dev

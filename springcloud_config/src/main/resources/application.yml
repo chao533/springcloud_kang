@@ -1,0 +1,23 @@
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+spring:
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/shared
+
+  profiles:
+    active: native
+
+  application:
+    name: springcloud-config-kang
+server:
+  port: 8771
+
+

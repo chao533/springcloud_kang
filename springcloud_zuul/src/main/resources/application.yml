@@ -1,0 +1,49 @@
+server:
+  port: 80
+  tomcat:
+    accept-count: 600
+    max-threads: 400
+    min-spare-threads: 10
+    max-connections: 10000
+    uri-encoding: UTF-8
+
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+
+spring:
+  application:
+    name: springcloud-zuul-kang
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 100MB
+      max-request-size: 1000MB
+
+zuul:
+  routes: #给服务配置路由
+    springcloud-login-kang:
+      path: /login-kang/**
+  ignored-services: springcloud-login-kang #关闭默认路由配置
+  prefix: /proxy #给网关路由添加前缀
+#  sensitive-headers: Cookie,Set-Cookie,Authorization #配置过滤敏感的请求头信息，设置为空就不会过滤
+  add-host-header: true #设置为true重定向是会添加host请求头
+  retryable: true # 关闭重试机制
+  PreLogFilter:
+    pre:
+      disable: false #控制是否启用过滤器
+      
+      
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 6000
+
