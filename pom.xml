@@ -84,5 +84,6 @@
 		<module>springcloud_login</module>
 		<module>springcloud_common</module>
 		<module>springcloud_zuul</module>
+		<module>springcloud_base</module>
 	</modules>
 </project>
