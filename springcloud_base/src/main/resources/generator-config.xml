@@ -46,7 +46,7 @@
 		</javaClientGenerator>
 
 
-		<table tableName="tb_user" domainObjectName="User"
+		<table tableName="tb_role" domainObjectName="Role"
 			enableCountByExample="false" enableUpdateByExample="false"
 			enableDeleteByExample="false" enableSelectByExample="false"
 			selectByExampleQueryId="false">

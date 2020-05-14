@@ -8,12 +8,9 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>springcloud_base</artifactId>
-	
+
 	<properties>
-		<mybatis.version>1.3.0</mybatis.version>
-		<tk.mybatis.version>4.1.2</tk.mybatis.version>
-  		<tk.mybatis.boot.version>2.1.5</tk.mybatis.boot.version>
-  		<fastdfs.version>1.26.6</fastdfs.version>
+		<fastdfs.version>1.26.6</fastdfs.version>
 		<!-- MyBatis Generator -->
 		<mybatis.generator.version>1.3.2</mybatis.generator.version>
 		<targetJavaProject>${basedir}/src/main/java</targetJavaProject>
@@ -21,24 +18,24 @@
 		<mapper.plugin>tk.mybatis.mapper.generator.MapperPlugin</mapper.plugin>
 		<mapper.Mapper>com.kang.common.mapper.BaseMapper</mapper.Mapper>
 	</properties>
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter</artifactId>
 		</dependency>
-		
+
 		<!-- 读取config dev.yml文件 -->
 		<dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-config</artifactId>
-        </dependency>
-	
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>com.kang</groupId>
 			<artifactId>springcloud_common</artifactId>
@@ -79,7 +76,7 @@
 			<artifactId>lombok</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		
+
 		<!-- eitity注解 -->
 		<dependency>
 			<groupId>javax.persistence</groupId>
@@ -95,7 +92,7 @@
 
 
 	</dependencies>
-	
+
 	<build>
 		<plugins>
 			<plugin>
