@@ -1,5 +1,6 @@
 package com.kang.controller;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +16,17 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import com.kang.common.constant.AppNameConstant;
+import com.kang.common.constant.Oauth2Constant;
 import com.kang.common.msg.ErrorCode;
 import com.kang.common.msg.Message;
 import com.kang.common.utils.JwtUtils;
+import com.kang.remote.AuthServiceClient;
 import com.kang.remote.BaseServiceClient;
+
+import cn.hutool.core.codec.Base64;
+import cn.hutool.core.lang.Console;
+import cn.hutool.core.map.MapUtil;
+import cn.hutool.core.util.CharsetUtil;
 
 @RestController
 @RequestMapping("/user")
@@ -28,10 +36,20 @@ public class UserController {
     private RestTemplate restTemplate;
 	@Autowired
 	private BaseServiceClient baseServiceClient;
+	@Autowired
+	private AuthServiceClient authServiceClient;
 
 	@GetMapping("/index")
 	public Message<?> index() {
-	    return new Message<>(ErrorCode.SUCCESS,JwtUtils.getUser());
+		String authorization = "Basic " + Base64.encode(Oauth2Constant.CLIENT + ":" + Oauth2Constant.SECRET, CharsetUtil.CHARSET_UTF_8);
+		Console.log("authorization:{}",authorization);
+		Map<String,Object> result = new HashMap<>();
+		result.put("getUser", JwtUtils.getUser());
+		Map<String,Object> token = authServiceClient.getToken(authorization, Oauth2Constant.GRANT_TYPES[0], "admin", "123456");
+		result.put("getToken", token);
+		Map<String,Object> refrshToken = authServiceClient.refreshToken(authorization, Oauth2Constant.GRANT_TYPES[1], MapUtil.getStr(token, "refresh_token"));
+		result.put("refrshToken", refrshToken);
+		return new Message<>(ErrorCode.SUCCESS,result);
 	}
 	
 	@GetMapping("/{id:\\d+}")
