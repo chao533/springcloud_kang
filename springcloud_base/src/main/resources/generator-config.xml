@@ -3,6 +3,7 @@
         PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
+	<!-- mybatis-generator:generate maven命令启动 -->
 
 	<!--&lt;!&ndash; 引入外部文件 &ndash;&gt; -->
 	<properties resource="config/cfg.properties" />
@@ -31,18 +32,17 @@
 			password="${eams.db.password}" />
 
 
-		<javaModelGenerator
-			targetPackage="com.kang.model"
+		<javaModelGenerator targetPackage="com.kang.model"
 			targetProject="src/main/java">
 		</javaModelGenerator>
 
-		<sqlMapGenerator
-			targetPackage="mapper" targetProject="src/main/resources">
+		<sqlMapGenerator targetPackage="mapper"
+			targetProject="src/main/resources">
 		</sqlMapGenerator>
 
 		<javaClientGenerator
-			targetPackage="com.kang.mapper"
-			targetProject="src/main/java" type="XMLMAPPER">
+			targetPackage="com.kang.mapper" targetProject="src/main/java"
+			type="XMLMAPPER">
 		</javaClientGenerator>
 
 

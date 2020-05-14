@@ -1,4 +1,4 @@
-package com.kang.common;
+package com.kang.common.mapper;
 
 
 import tk.mybatis.mapper.annotation.RegisterMapper;

@@ -2,7 +2,7 @@ package com.kang.mapper.mybatis;
 
 import org.apache.ibatis.annotations.Select;
 
-import com.kang.common.BaseMapper;
+import com.kang.common.mapper.BaseMapper;
 import com.kang.model.MyUser;
 
 /**
