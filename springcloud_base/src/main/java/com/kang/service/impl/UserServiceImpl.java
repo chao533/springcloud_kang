@@ -26,8 +26,12 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public Message<?> getUserInfo(Long id) {
 		Assert.notNull(id,"参数错误");
-		User user = userMapper.selectByPrimaryKey(id);
-		user.setIcon(fdfsConfig.getFullPush(user.getIcon()));
+		User userParam = new User();
+		userParam.setId(id);
+		User user = userMapper.selectOne(userParam);
+		if(user != null) {
+			user.setIcon(fdfsConfig.getFullPush(user.getIcon()));
+		}
 		return new Message<>(ErrorCode.SUCCESS,user);
 	}
 

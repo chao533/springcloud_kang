@@ -54,7 +54,7 @@ public class UserController {
      * @param @param user
      * @param @return
      */
-    @PostMapping("addUser")
+    @PostMapping("/addUser")
     public Message<?> addUser(@RequestBody User user) {
     	return userService.addUser(user);
     }
@@ -65,8 +65,8 @@ public class UserController {
      * @param @param user
      * @param @return
      */
-    @PutMapping("updateUser")
-    public Message<?> update(@RequestBody User user) {
+    @PutMapping("/updateUser")
+    public Message<?> updateUser(@RequestBody User user) {
     	return userService.updateUser(user);
     }
 
@@ -77,7 +77,7 @@ public class UserController {
      * @param @return
      */
     @DeleteMapping("/{id:\\d+}")
-    public Message<?> delete(@PathVariable Long id) {
+    public Message<?> deleteUser(@PathVariable Long id) {
     	return userService.deleteUser(id);
     }
 }

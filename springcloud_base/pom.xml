@@ -24,6 +24,22 @@
 	
 	<dependencies>
 		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter</artifactId>
+		</dependency>
+		
+		<!-- 读取config dev.yml文件 -->
+		<dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+	
+		<dependency>
 			<groupId>com.kang</groupId>
 			<artifactId>springcloud_common</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
