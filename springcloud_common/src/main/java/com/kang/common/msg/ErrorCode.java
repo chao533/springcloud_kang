@@ -15,7 +15,7 @@ public enum ErrorCode {
 	ERROR_LIMIT(400,"您访问的太频繁了"),
 	SUCESS_END(200,"恭喜，抢购成功"),
 	ERROR_END(500,"很遗憾，秒杀结束"),
-	
+	ERROR_HYSTRIX(500,"服务熔断失败"),
 	ERROR(500,"操作失败");
 	
 	private int code;

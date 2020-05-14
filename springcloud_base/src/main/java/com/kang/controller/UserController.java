@@ -15,7 +15,7 @@ import com.kang.model.User;
 import com.kang.service.UserService;
 /**
  * <p>Title: UserController</p>
- * <p>Description: 用户操作<p>
+ * <p>Description: 用户操作（Restful）<p>
  * @author ChaoKang
  * @date 2020年5月14日
  */

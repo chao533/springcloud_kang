@@ -16,10 +16,32 @@
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		
+		<!-- eureka-client -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
+		
+		<dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+        </dependency>
+		
+		<!-- 读取config dev.yml文件 -->
+		<dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+        
+        <!-- openfeign -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+        <dependency>
+		     <groupId>io.github.openfeign</groupId>
+		     <artifactId>feign-httpclient</artifactId>
+		 </dependency>
 		
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
@@ -33,11 +55,6 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-security</artifactId>
 		</dependency>
-		<!-- 读取config dev.yml文件 -->
-		<dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-config</artifactId>
-        </dependency>
 		
 		<!-- Mybaits -->
 		<dependency>
