@@ -21,7 +21,7 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource # 使用阿里的Druid连接池
     driver-class-name: com.mysql.cj.jdbc.Driver
     # 填写你数据库的url、登录名、密码和数据库名
-    url: jdbc:mysql://192.168.36.129:3306/springboot_kang?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://47.105.189.247:3306/jyweb?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8
     username: root
     password: 123456
     druid:
@@ -60,11 +60,15 @@ spring:
       enabled: true
       trace:
         enabled: true
-management: 
+        
+management:
   endpoints:
     web:
       exposure:
-        include: bus-refresh
+        include: bus-refresh,health,info # 2.X 版本的配置方式。默认只有health,info，这里需要将refresh添加上【手动刷新使用的是refresh，使用消息总线则是bus-refresh】
+  endpoint:
+    health:
+      show-details: always
       
 #Mybatis配置
 mybatis:
