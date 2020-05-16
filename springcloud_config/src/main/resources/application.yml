@@ -29,6 +29,26 @@ spring:
           username:                                             # git仓库的账号（私有库必填）
           password:                                             # git仓库的密码（私有库必填）
       label: master                                        #配置git仓库的分支
+    bus: 
+      enabled: true
+      trace:
+        enabled: true
+
+  #rabbitmq配置
+  rabbitmq:
+    host: 192.168.36.129
+    port: 5672
+    username: admin
+    password: mypass
+        
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
+  endpoint:
+    health:
+      show-details: always
 
 #访问远程配置文件
 # http://localhost:8771/master/springcloud-login-kang-dev.yml
