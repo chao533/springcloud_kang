@@ -15,4 +15,11 @@ spring:
       uri: http://localhost:8771/          #配置中心的具体地址
       label: master                        #对应git的分支。如果配置中心使用的是本地存储，则该参数无用
       discovery:
+        enabled: true #开启 Config 服务发现支持
         service-id: springcloud-config-kang      #指定配置中心的service-id，便于扩展为高可用配置集群。
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh,health,info # 2.X 版本的配置方式。默认只有health,info，这里需要将refresh添加上【手动刷新使用的是refresh，使用消息总线则是bus-refresh】
