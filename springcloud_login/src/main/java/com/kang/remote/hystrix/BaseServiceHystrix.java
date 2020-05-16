@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import com.kang.model.User;
 import com.kang.remote.BaseServiceClient;
 
 @Component
@@ -21,9 +22,11 @@ public class BaseServiceHystrix implements BaseServiceClient{
 	}
 
 	@Override
-	public Map<String,Object> getUserList(Map<String, Object> user) {
+	public Map<String, Object> getUserList(User user, int pageNo, int pageSize) {
 		log.info("getUserList服务容错:{}",user);
 		return new HashMap<>();
 	}
+
+	
 
 }

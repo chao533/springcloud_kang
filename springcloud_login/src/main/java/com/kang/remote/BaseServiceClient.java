@@ -3,10 +3,13 @@ package com.kang.remote;
 import java.util.Map;
 
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.kang.common.constant.AppNameConstant;
+import com.kang.model.User;
 import com.kang.remote.hystrix.BaseServiceHystrix;
 
 /**
@@ -18,9 +21,9 @@ import com.kang.remote.hystrix.BaseServiceHystrix;
 @FeignClient(value = AppNameConstant.BASE,fallback = BaseServiceHystrix.class)
 public interface BaseServiceClient{
 
-	@GetMapping("/user/{id:\\d+}")
+	@RequestMapping(value = "/user/{id:\\d+}",method = RequestMethod.GET)
     public Map<String,Object> getUserInfo(@PathVariable Long id);
 	
-	 @GetMapping("/user/getUserList")
-	 public Map<String,Object> getUserList(Map<String,Object> user);
+	@RequestMapping(value = "/user/getUserList/{pageNo}/{pageSize}",method = RequestMethod.POST)
+	public Map<String,Object> getUserList(@RequestBody User user,@PathVariable int pageNo,@PathVariable int pageSize);
 }

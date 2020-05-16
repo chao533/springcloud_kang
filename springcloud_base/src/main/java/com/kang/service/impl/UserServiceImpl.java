@@ -1,10 +1,11 @@
 package com.kang.service.impl;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.kang.common.exception.ServiceException;
 import com.kang.common.msg.ErrorCode;
 import com.kang.common.msg.Message;
@@ -36,12 +37,15 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public Message<?> getUserList(User user) {
-		List<User> userList = userMapper.select(user);
-		userList.forEach(u -> {
+	public Message<?> getUserList(User user,int pageNo,int pageSize) {
+		Page<User> page = PageHelper.startPage(pageNo, pageSize);
+		Page<User> datas = (Page<User>) userMapper.select(user);
+		datas.setTotal(page.getTotal());
+		PageInfo<User> pageInfo = new PageInfo<>(datas);
+		pageInfo.getList().forEach(u -> {
 			u.setIcon(fdfsConfig.getFullPush(u.getIcon()));
 		});
-		return new Message<>(ErrorCode.SUCCESS,userList);
+		return new Message<>(ErrorCode.SUCCESS,pageInfo);
 	}
 
 	@Override

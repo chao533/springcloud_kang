@@ -21,7 +21,7 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource # 使用阿里的Druid连接池
     driver-class-name: com.mysql.cj.jdbc.Driver
     # 填写你数据库的url、登录名、密码和数据库名
-    url: jdbc:mysql://192.168.36.128:3306/springboot_kang?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://192.168.36.129:3306/springboot_kang?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8
     username: root
     password: 123456
     druid:

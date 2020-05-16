@@ -2,12 +2,12 @@ package com.kang.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kang.common.msg.Message;
@@ -32,7 +32,7 @@ public class UserController {
 	 * @param @param id
 	 * @param @return
 	 */
-    @GetMapping("/{id:\\d+}")
+	@RequestMapping(value = "/{id:\\d+}",method = RequestMethod.GET)
     public Message<?> getUserInfo(@PathVariable Long id) {
         return userService.getUserInfo(id);
     }
@@ -43,9 +43,9 @@ public class UserController {
      * @param @param user
      * @param @return
      */
-    @GetMapping("/getUserList")
-    public Message<?> getUserList(User user) {
-        return userService.getUserList(user);
+    @RequestMapping(value = "/getUserList/{pageNo}/{pageSize}",method = RequestMethod.POST)
+    public Message<?> getUserList(@RequestBody User user,@PathVariable Integer pageNo, @PathVariable Integer pageSize) {
+        return userService.getUserList(user,pageNo,pageSize);
     }
 
     /**

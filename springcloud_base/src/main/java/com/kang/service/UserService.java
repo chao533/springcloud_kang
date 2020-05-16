@@ -25,7 +25,7 @@ public interface UserService {
 	 * @param @param user
 	 * @param @return
 	 */
-	Message<?> getUserList(User user);
+	Message<?> getUserList(User user,int pageNo,int pageSize);
 	
 	/**
 	 * <p>Title: addUser</p>
