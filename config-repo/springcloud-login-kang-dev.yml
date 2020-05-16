@@ -47,7 +47,24 @@ spring:
       filters: stat,wall
       # 通过connectProperties属性来打开mergeSql功能；慢SQL记录 http://localhost:8083/druid/sql.html
       connectionProperties: druid.stat.mergeSql\=true;druid.stat.slowSqlMillis\=5000
-      
+
+# 发送post请求自动刷新配置：http://localhost:8083/actuator/bus-refresh
+  #rabbitmq配置
+  rabbitmq:
+    host: 192.168.36.129
+    port: 5672
+    username: admin
+    password: mypass
+  cloud:     
+    bus: 
+      enabled: true
+      trace:
+        enabled: true
+management: 
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
       
 #Mybatis配置
 mybatis:
@@ -61,7 +78,6 @@ mybatis:
 logging:
   level:
     root: com.kang.mapper:INFO
-
 
 
 
