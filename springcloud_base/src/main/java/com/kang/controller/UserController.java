@@ -1,6 +1,7 @@
 package com.kang.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,6 +20,7 @@ import com.kang.service.UserService;
  * @author ChaoKang
  * @date 2020年5月14日
  */
+@RefreshScope
 @RestController
 @RequestMapping("/user")
 public class UserController {
