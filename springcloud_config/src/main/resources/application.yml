@@ -11,14 +11,27 @@ eureka:
 spring:
   application:
     name: springcloud-config-kang
-  profiles:
-    active: native
+#  profiles:
+#    active: native
+#  cloud:
+#    config:
+#      server:
+#        native:
+#          search-locations: classpath:/shared
+
+
   cloud:
     config:
       server:
-        native:
-          search-locations: classpath:/shared
+        git:
+          uri: https://github.com/chao533/springcloud_kang.git     # 配置git仓库的地址
+          search-paths: config-repo                                # git仓库地址下的相对地址，可以配置多个，用,分割。
+          username:                                             # git仓库的账号（私有库必填）
+          password:                                             # git仓库的密码（私有库必填）
+      label: master                                        #配置git仓库的分支
 
-
+#访问远程配置文件
+# http://localhost:8771/master/springcloud-login-kang-dev.yml
+# http://localhost:8771/master/springcloud-base-kang-dev.yml
 
 
