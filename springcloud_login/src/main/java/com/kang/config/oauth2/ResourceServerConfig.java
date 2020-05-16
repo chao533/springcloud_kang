@@ -31,7 +31,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                 .failureHandler(authenticationFailureHandler) // 处理登录失败
             .and()
                 .authorizeRequests() // 授权配置
-                //.antMatchers("/user/**").permitAll() // 放行
+                .antMatchers("/actuator/**").permitAll() // 放行
                 .antMatchers("/**")
                 .authenticated() // 都需要认证
             .and()
