@@ -21,7 +21,7 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource # 使用阿里的Druid连接池
     driver-class-name: com.mysql.cj.jdbc.Driver
     # 填写你数据库的url、登录名、密码和数据库名
-    url: jdbc:mysql://192.168.36.129:3306/springboot_kang?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://192.168.36.130:3306/springboot_kang?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8
     username: root
     password: 123456
     druid:
@@ -51,7 +51,7 @@ spring:
 # 发送post请求自动刷新配置：http://localhost:8083/actuator/bus-refresh
   #rabbitmq配置
   rabbitmq:
-    host: 192.168.36.129
+    host: 192.168.36.130
     port: 5672
     username: admin
     password: mypass
