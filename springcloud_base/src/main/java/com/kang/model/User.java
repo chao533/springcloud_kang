@@ -1,7 +1,13 @@
 package com.kang.model;
 
 import java.util.Date;
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Table(name = "tb_user")
 public class User {
@@ -46,6 +52,7 @@ public class User {
     /**
      * 生日
      */
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date birthday;
 
     /**
@@ -61,6 +68,7 @@ public class User {
     /**
      * 创建时间
      */
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm")
     @Column(name = "create_time")
     private Date createTime;
 
