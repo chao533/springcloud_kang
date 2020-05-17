@@ -69,7 +69,7 @@ public class UserController {
 		Map<String, Object> userMap = MapUtil.get(resultMap, "data", new TypeReference<Map<String,Object>>() {});
 		Console.log("userMap:{}",userMap);
 //		return userMap;
-		return baseServiceClient.getUserInfo(id);
+		return baseServiceClient.getUserInfo(JwtUtils.getRequest().getHeader(Oauth2Constant.TOKEN_HEADER), id);
 	}
 	
 	/**

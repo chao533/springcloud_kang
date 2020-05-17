@@ -11,6 +11,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.kang.common.constant.Oauth2Constant;
+import com.kang.common.exception.ServiceException;
 
 import cn.hutool.core.lang.Dict;
 import cn.hutool.core.map.MapUtil;
@@ -21,6 +22,9 @@ public class JwtUtils {
 	
 	public static Map<String,Object> getUser(){
 		String header = getRequest().getHeader(Oauth2Constant.TOKEN_HEADER);
+		if(StringUtils.isBlank(header)) {
+			throw new ServiceException("token不能为空");
+		}
 	    String token = StringUtils.substringAfter(header, Oauth2Constant.TOKEN_PREFIX + " ");
 	    Map<String,Object> body = Jwts.parser().setSigningKey(Oauth2Constant.SIGNING_KEY.getBytes(StandardCharsets.UTF_8)).parseClaimsJws(token).getBody();
 	    

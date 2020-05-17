@@ -16,7 +16,7 @@ public class BaseServiceHystrix implements BaseServiceClient{
 	private Logger log = LoggerFactory.getLogger(this.getClass());
 
 	@Override
-	public Map<String,Object> getUserInfo(Long id) {
+	public Map<String,Object> getUserInfo(String authorization,Long id) {
 		log.info("getUserInfo服务容错:{}",id);
 		return new HashMap<>();
 	}

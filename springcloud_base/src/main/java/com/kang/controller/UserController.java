@@ -12,8 +12,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kang.common.msg.Message;
+import com.kang.common.utils.JwtUtils;
 import com.kang.model.User;
 import com.kang.service.UserService;
+
+import cn.hutool.core.lang.Console;
 /**
  * <p>Title: UserController</p>
  * <p>Description: 用户操作（Restful）<p>
@@ -36,6 +39,7 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/{id:\\d+}",method = RequestMethod.GET)
     public Message<?> getUserInfo(@PathVariable Long id) {
+		Console.log("jwtUser:{}",JwtUtils.getUser());
         return userService.getUserInfo(id);
     }
 
