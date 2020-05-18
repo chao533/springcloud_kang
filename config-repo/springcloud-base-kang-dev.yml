@@ -66,7 +66,7 @@ logging:
 
 #FastDFS配置
 fdfs:
-  webserver: http://192.168.36.130:8080/
+  webserver: http://192.168.36.131:8080/
   soTimeout: 1501
   connectTimeout: 601
   thumbImage:     #缩略图生成参数
