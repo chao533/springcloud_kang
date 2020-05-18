@@ -25,6 +25,10 @@ spring:
       max-file-size: 100MB
       max-request-size: 1000MB
 
+ribbon:  
+  ReadTimeout: 10000 
+  ConnectTimeout: 10000      
+
 
 zuul:
   routes: #给服务配置路由
@@ -37,14 +41,9 @@ zuul:
   sensitive-headers: Cookie,Set-Cookie #配置过滤敏感的请求头信息，设置为空就不会过滤
   add-host-header: true #设置为true重定向是会添加host请求头
   retryable: true # 关闭重试机制
-  PreLogFilter:
+  LogFilter:
     pre:
-      disable: false #控制是否启用过滤器
-  host:
-    connect-timeout-millis: 100000
-    socket-timeout-millis: 600000
-    max-per-route-connections: 10000
-    max-total-connections: 10000
+      disable: true #控制是否启用过滤器
       
       
 hystrix:
@@ -53,5 +52,5 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 600000
+            timeoutInMilliseconds: 6000
 
